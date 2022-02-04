@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="./Imagenes/favicon-32x32.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Events</title>
+    <link rel="stylesheet" href="./styles/style.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="logoContainer">
+            <img src="./Imagenes/logoA.png" alt="Logo">
+            <h1 class="text-center">Amazing Events</h1>
+
+        </div>
+        <nav>
+            <ul class="menuList">
+                <li> <a href="./index.html" class="linkMenu">Inicio</a></li>
+                <li> <a href="./proximos.html" class="linkMenu">Próximos Eventos</a></li>
+                <li> <a href="./pasados.html" class="linkMenu">Eventos Pasados</a></li>
+
+                <li><input type="button" value="Registro" id="registro" class="btn"></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main">
+        <section>
+            <label id="busqueda" style="font-size: 1.5rem; cursor: pointer;" for="busqueda"
+                class="labelSearch labelSearchBtn">Buscar
+                Eventos<img src="https://gogeticons.com/frontend/web/icons/data/6/1/9/5/9/search_512.png"
+                    class="lupaImg" alt="Lupa"></label>
+            <div class="grid-container" id="beforeContainer">
+                <table class="tableSumm">
+                    <thead>
+                        <tr>
+                            <th class="tableCelda">Mayor Audiencia</th>
+                            <th class="tableCelda">Menor Audiencia</th>
+                            <th class="tableCelda">Mayor Capacidad</th>
+                            <th class="tableCelda">Ingreso por categoria</th>
+                            <th class="tableCelda">Porcentaje de asistencia por categoria</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="tableCelda"></td>
+                            <td class="tableCelda"></td>
+                            <td class="tableCelda"></td>
+                            <td class="tableCelda"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <h5 class="text-center">Amazing Events- Copyrigth&copy; 2022 amazinevents.com</h5>
+    </footer>
+
+
+    <script src="./scripts/summary.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="./Imagenes/favicon-32x32.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Events</title>
+    <link rel="stylesheet" href="./styles/style.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="logoContainer">
+            <img src="./Imagenes/logoA.png" alt="Logo">
+            <h1 class="text-center">Amazing Events</h1>
+
+        </div>
+        <nav>
+            <ul class="menuList">
+
+                <li> <a href="./index.html" class="linkMenu">Inicio</a></li>
+                <li> <a href="./proximos.html" class="linkMenu">Próximos Eventos</a></li>
+                <li> <a href="./pasados.html" class="linkMenu">Eventos Pasados</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <main id="main">
+        <section>
+            <h2 class="text-center h2">Regístrate</h2>
+            <h4 class="text-center h4">¡Completa con tus datos para disfrutar del acceso a una cuenta !</h4>
+            <!-- <div class="grid-container" id="beforeContainer"> -->
+                <fieldset class=" grid-container formField">
+
+                    <form class="form" action="">
+                        <div class="formRow">
+
+                            <div class="formGroup">
+                                <label class="formLabel" for="nombre">Nombre completo</label>
+                                <span class="alertForm" id="alertName"></span>
+                                <input class="formControl" type="text" name="nombre" id="nombre" required>
+                            </div>
+                            <div class="formGroup">
+                                <label class="formLabel" for="email">Email</label>
+                                <span class="alertForm" id="alertEmail"></span>
+                                <input class="formControl" type="email" name="email" id="email" required>
+                            </div>
+                        </div>
+                        <div class="formRow">
+
+                            <div class="formGroup">
+                                <label class="formLabel" for="password">Contraseña</label>
+                                <span class="alertForm" id="alertPassword"></span>
+                                <input class="formControl" type="password" name="password" id="password" required>
+                            </div>
+                            <div class="formGroup">
+                                <label class="formLabel" for="confirmPassword">Confirmar Contraseña</label>
+                                <span class="alertForm" id="alertConfirmPassword"></span>
+                                <input class="formControl" type="password" name="confirmPassword" id="confirmPassword" required>
+                            </div>
+                        </div>
+                        <div class="formRow">
+                            <div class="formGroup">
+                                <label class="formLabel" for="tipeUser">Tipo de Usuario</label>
+                                <span class="alertForm" id="alertSelectUser"></span>
+                                <select class="formControl" style="color: black;" name="tipeUser" id="tipeUser" required>
+                                    <option style="color: black;" value="">Estudiante</option>
+                                    <option style="color: black;" value="">Docente</option>
+                                    <option style="color: black;" value="">Otro</option>
+                                    <option style="color: black;" value="" selected>Seleccione...</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="terminos">
+                            <label for=""><input name="terminos" id="terminos" type="checkbox" required> Acepto los terminos y
+                                condiciones</label>
+                            <input type="button" value="Registro" id="registro" class="btn">
+                        </div>
+
+                    </form>
+                </fieldset>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <h5 class="text-center">Amazing Events- Copyrigth&copy; 2022 amazinevents.com</h5>
+    </footer>
+
+
+
+
+</body>
+
+</html>

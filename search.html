@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="./Imagenes/favicon-32x32.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Events</title>
+    <link rel="stylesheet" href="./styles/style.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="logoContainer">
+            <img src="./Imagenes/logoA.png" alt="Logo">
+            <h1 class="text-center">Amazing Events</h1>
+
+        </div>
+        <nav>
+            <ul class="menuList">
+                <li> <a href="./index.html" class="linkMenu">inicio</a></li>
+                <li> <a href="./proximos.html" class="linkMenu">Próximos Eventos</a></li>
+                <li> <a href="./pasados.html" class="linkMenu">Eventos Pasados</a></li>
+                <li><input type="button" value="Registro" class="btn"></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main">
+        <section>
+            <div class="filtroGroup">
+                <h3>Filtros</h3>
+                <div class="filtroControl">
+
+                    <label for="selectInp" class="labelSearch labelFiltro">
+                        <select name="selectInp" id="selectInp" class="searchInp">
+                            <option class="option" value="mayor"> Capacidad mayor a 50mil</option>
+                            <option class="option" value="menor"> Capacidad menor a 50mil</option>
+                            <option class="option" value="" selected>Seleccione...</option>
+                        </select>
+                    </label>
+                    <div class="labelSearch labelFiltro">
+                        <label><input class="checBox" value="campo" type="checkbox"> Campo</label>
+                        <label><input class="checBox" value="salón" type="checkbox"> Salón</label>
+                    </div>
+                    <label for="busqueda" class="labelSearch labelFiltro">
+                        <input type="text" placeholder="Buscar evento"
+                            class="searchInp" id="busqueda" name="busqueda"><img
+                            src="https://gogeticons.com/frontend/web/icons/data/6/1/9/5/9/search_512.png"
+                            class="lupaImg" alt="Lupa">
+                    </label>
+                </div>
+            </div>
+
+            <h4 class="text-center h4 h3">¡Resultados de busqueda para: <span id="resBusqueda"> todos los
+                    eventos</span> !</h4>
+            <div class="grid-container" id="beforeContainer">
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <h5 class="text-center">Amazing Events- Copyrigth&copy; 2022 amazinevents.com</h5>
+    </footer>
+
+
+
+    <script src="./scripts/search2.js"></script>
+</body>
+
+</html>
