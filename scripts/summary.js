@@ -19,6 +19,7 @@ async function getData() {
             // console.log(menorPorcAud)
             // console.log(mayorCAp)
             ingresoPorCategoria()
+            console.table(ingresoXcategoria)
 
         })
 }
@@ -49,7 +50,6 @@ function mayorCapacity() {
 }
 
 function ingresoPorCategoria() {
-
     let arraySort = []
     arraySort.push(...datosFijos)
     let unicos = arraySort.map(evento => evento.category)
@@ -60,7 +60,6 @@ function ingresoPorCategoria() {
     arraySort.map(evento => {
         evento.ingresos = evento.assistance * evento.price
     })
-
     categorias.forEach(cate => {
         let obj = {}
         let array = arraySort.filter(even => even.category == cate && even.date < fechaActual)
@@ -73,12 +72,11 @@ function ingresoPorCategoria() {
             ingresos: total
         }
         ingresos.push(obj)
-        console.log(arraySort.filter(even => even.category == cate))
+        // console.log(arraySort.filter(even => even.category == cate))
     })
-
-
-    console.log(arraySort)
-    console.log(categorias)
-    console.log(ingresos)
+    ingresoXcategoria.push(...ingresos)
+    // console.log(arraySort)
+    // console.log(categorias)
+    // console.log(ingresos)
 }
 
