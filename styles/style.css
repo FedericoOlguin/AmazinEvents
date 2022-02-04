@@ -286,6 +286,12 @@ footer {
 .option {
   color: black;
 }
+.table{
+  width: 70%;
+}
+td,th{
+  border: solid;
+}
 
 @media (max-width: 1254px) {
   .pCardD {
@@ -374,6 +380,9 @@ footer {
 }
 
 @media (max-width: 550px) {
+  .table{
+    width: 90%;
+  }
   .imgDetalleCard {
     height: 15rem;
     object-fit: cover;
