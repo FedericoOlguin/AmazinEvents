@@ -7,7 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amazing Events</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/style.css">
+
 
 </head>
 
@@ -34,24 +37,64 @@
                 class="labelSearch labelSearchBtn">Buscar
                 Eventos<img src="https://gogeticons.com/frontend/web/icons/data/6/1/9/5/9/search_512.png"
                     class="lupaImg" alt="Lupa"></label>
-            <div class="grid-container" id="beforeContainer">
-                <table class="tableSumm">
-                    <thead>
-                        <tr>
-                            <th class="tableCelda">Mayor Audiencia</th>
-                            <th class="tableCelda">Menor Audiencia</th>
-                            <th class="tableCelda">Mayor Capacidad</th>
-                            <th class="tableCelda">Ingreso por categoria</th>
-                            <th class="tableCelda">Porcentaje de asistencia por categoria</th>
-                        </tr>
-                    </thead>
+            <div class=" grid-container tasble-responsive-sm  " id="beforeContainer">
+                <!-- <table class="tableSumm">
+
+                    <tr>
+                        <th class="tableCelda">Mayor % Audiencia</th>
+                        <td> evento con mayor audiencia</td>
+                    </tr>
+
+                    <tr>
+                        <th class="tableCelda"> Menor % Audiencia</th>
+                        <td class="tableCelda"> ebento con menmor %</td>
+                    </tr>
+
+                </table> -->
+                <table class="table caption-top">
+                    <caption>Statistics</caption>
+                    
                     <tbody>
                         <tr>
-                            <td class="tableCelda"></td>
-                            <td class="tableCelda"></td>
-                            <td class="tableCelda"></td>
-                            <td class="tableCelda"></td>
+                            <th scope="row" >Mayor porcentaje de audiencia</th>
+                            <td  colspan="3">Evento :  45%</td>
                         </tr>
+                        <tr>
+                            <th scope="row">Menor porcentaje de audiencia</th>
+                            <td colspan="3">Evento :  73%</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Mayor Capacidad</th>
+                            <td colspan="3"> Evento : Capacidad= 150000</td>
+                           
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="3">Ingreso por categoria</th>
+                            <td colspan="2">Categoria</td>
+                            <td>$ Ingreso</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Categoria</td>
+                            <td>$ Ingreso</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Categoria</td>
+                            <td>$ Ingreso</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="3">Porcentaje de asistencia por categoria</th>
+                            <td colspan="2">Categoria</td>
+                            <td>% porcentaje</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Categoria</td>
+                            <td>% porcentaje</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Categoria</td>
+                            <td>% porcentaje</td>
+                        </tr>
+                        
                     </tbody>
                 </table>
             </div>
@@ -66,6 +109,9 @@
 
 
     <script src="./scripts/summary.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

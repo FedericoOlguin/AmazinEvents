@@ -20,8 +20,6 @@ body {
   grid-template-rows: 13vh 4fr 2fr;
   gap: 4px;
   background-image: radial-gradient(circle, #9a031e, #8f002b, #810035, #71053c, #5f0f40);
-
-  justify-items: stretch;
 }
 header {
   grid-area: header;
@@ -75,6 +73,8 @@ footer {
   padding: 1rem;
   font-size: 1.5rem;
   margin-bottom: 5rem;
+  text-decoration: none;
+  color: aliceblue;
 }
 .linkMenu:hover {
   color: #2a1e35;
@@ -99,6 +99,7 @@ footer {
   cursor: pointer;
   margin: 0 1rem;
   transition: all 1s;
+  color: aliceblue;
 }
 .btn:hover {
   transform: scale(1.05);
@@ -214,7 +215,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 2rem 0; 
+  margin: 2rem 0;
 }
 .formRow {
   width: 100%;
@@ -273,34 +274,24 @@ footer {
   border-radius: 5px;
   overflow: hidden;
 }
-.cardDetalleBody{
+.cardDetalleBody {
   display: flex;
   flex-direction: column;
   /* justify-content: space-around; */
   padding: 1rem 2rem;
 }
-.pCardD{
+.pCardD {
   margin: 2rem 0;
 }
-.option{
+.option {
   color: black;
 }
 
-.tableSumm{
-  border: solid 3px #22192b;
-  border-collapse: collapse;
-}
-.tableCelda{
-  border: solid 3px #22192b;
-  padding: 1rem;
-
-}
-
 @media (max-width: 1254px) {
-  .pCardD{
+  .pCardD {
     margin: 1rem 0;
   }
-  .imgDetalleCard{
+  .imgDetalleCard {
     width: 100%;
     /* height: 50%; */
     object-fit: contain;
@@ -383,7 +374,7 @@ footer {
 }
 
 @media (max-width: 550px) {
-  .imgDetalleCard{
+  .imgDetalleCard {
     height: 15rem;
     object-fit: cover;
   }

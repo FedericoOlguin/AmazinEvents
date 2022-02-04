@@ -4,6 +4,7 @@ let mayorCAp = 0
 let ingresoXcategoria = []
 var datosFijos = []
 let categriasArray = []
+let porcientoXcategoria = []
 let fechaActual = ""
 
 getData()
@@ -19,7 +20,9 @@ async function getData() {
             // console.log(menorPorcAud)
             // console.log(mayorCAp)
             ingresoPorCategoria()
+            porcentajePorCategoria()
             console.table(ingresoXcategoria)
+            console.table(porcientoXcategoria)
 
         })
 }
@@ -78,5 +81,34 @@ function ingresoPorCategoria() {
     // console.log(arraySort)
     // console.log(categorias)
     // console.log(ingresos)
+}
+
+function porcentajePorCategoria() {
+
+    let arraySort = []
+    arraySort.push(...datosFijos)
+    let categorias = [...categriasArray]
+    // console.log(categorias)
+    let asistencia = []
+    arraySort.map(evento => {
+        evento.asisPorciento = (evento.assistance * 100) / evento.capacity
+    })
+    categorias.forEach(cate => {
+        let obj = {}
+        let array = arraySort.filter(even => even.category == cate && even.date < fechaActual)
+        let total = 0
+        array.forEach(val => {
+            total += val.asisPorciento
+        })
+        total = total / array.length
+        obj = {
+            nombre: cate,
+            porcentajeAs: Number(total.toFixed(2))
+        }
+        asistencia.push(obj)
+        // console.log(arraySort.filter(even => even.category == cate))
+    })
+    porcientoXcategoria.push(...asistencia)
+
 }
 
