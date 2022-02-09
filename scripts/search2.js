@@ -3,34 +3,49 @@ const busqueda = document.getElementById("busqueda")
 const beforeContainer = document.getElementById("beforeContainer")
 const resBusqueda = document.getElementById("resBusqueda")
 const selectInp = document.getElementById("selectInp")
-const inpChecBox = document.querySelectorAll(".checBox")
+
 const registro = document.getElementById("registro")
+const checkboxContainer = document.getElementById("checkboxContainer")
 
 let datosFijos = []
 let textSerch = ""
 let valueSelect = ""
 let valueCheckbox = []
+let categoryA = []
+
+getData()
+async function getData() {
+    await fetch("https://amazingeventsapi.herokuapp.com/api/eventos")
+        .then(promesa => promesa.json())
+        .then(datos => {
+            datosFijos.push(...datos.eventos)
+
+            let prueba = [...datosFijos.filter(eve => { return eve.assistance != undefined })]
+            categoryA = prueba.map(even =>
+                even.category
+            )
+            categoryA = [...new Set(categoryA)]
+            imprimirPantalla(datosFijos)
+            imprimirCheck()
+            getValueChecbox()
+            selectInp.addEventListener("change", getValueSelect)
+            busqueda.addEventListener("input", getTextSearch)
+            // console.table(categoryA)
+
+        })
+
+}
 
 
-fetch("https://amazingeventsapi.herokuapp.com/api/eventos")
-    .then(promesa => promesa.json())
-    .then(datos => {
-        datosFijos.push(...datos.eventos)
-        imprimirPantalla(datosFijos)
-        let prueba = [...datosFijos.filter(eve => { return eve.assistance != undefined })]
-        let categoryA= prueba.map(even=>
-            even.category
-        )
-        categoryA= [...new Set(categoryA)]
-        console.table(categoryA)
-       
+
+
+function imprimirCheck() {
+    categoryA.forEach(categ => {
+        checkboxContainer.innerHTML += (`<label  style="width:50%;height:2rem; display:flex;align-items:flex-end; justify-content:flex-start">${categ} <input   class="checBox" value="${categ}" type="checkbox"></label`)
     })
 
 
-selectInp.addEventListener("change", getValueSelect)
-busqueda.addEventListener("input", getTextSearch)
-
-
+}
 function getValueSelect() {
     var valor = event.target.value
     valueSelect = valor
@@ -56,24 +71,24 @@ function getTextSearch() {
             if (textSerch == undefined) {
                 switch (valueSelect) {
                     case "menor":
-                        filtrado.push(...datosFijos.filter(even => even.place.toLowerCase().includes(lugar.toLowerCase()) && even.capacity < 50000))
+                        filtrado.push(...datosFijos.filter(even => even.category.toLowerCase().includes(lugar.toLowerCase()) && even.capacity < 50000))
                         break;
                     case "mayor":
-                        filtrado.push(...datosFijos.filter(even => even.place.toLowerCase().includes(lugar.toLowerCase()) && even.capacity > 50000))
+                        filtrado.push(...datosFijos.filter(even => even.category.toLowerCase().includes(lugar.toLowerCase()) && even.capacity > 50000))
                         break;
                     default:
-                        filtrado.push(...datosFijos.filter(even => even.place.toLowerCase().includes(lugar.toLowerCase())))
+                        filtrado.push(...datosFijos.filter(even => even.category.toLowerCase().includes(lugar.toLowerCase())))
                 }
             } else {
                 switch (valueSelect) {
                     case "menor":
-                        filtrado.push(...datosFijos.filter(even => even.place.toLowerCase().includes(lugar) && even.capacity < 50000 && even.name.toLowerCase().includes(textSerch.toLowerCase())))
+                        filtrado.push(...datosFijos.filter(even => even.category.toLowerCase().includes(lugar.toLowerCase()) && even.capacity < 50000 && even.name.toLowerCase().includes(textSerch.toLowerCase())))
                         break;
                     case "mayor":
-                        filtrado.push(...datosFijos.filter(even => even.place.toLowerCase().includes(lugar) && even.capacity > 50000 && even.name.toLowerCase().includes(textSerch.toLowerCase())))
+                        filtrado.push(...datosFijos.filter(even => even.category.toLowerCase().includes(lugar.toLowerCase()) && even.capacity > 50000 && even.name.toLowerCase().includes(textSerch.toLowerCase())))
                         break;
                     default:
-                        filtrado.push(...datosFijos.filter(even => even.place.toLowerCase().includes(lugar) && even.name.toLowerCase().includes(textSerch.toLowerCase())))
+                        filtrado.push(...datosFijos.filter(even => even.category.toLowerCase().includes(lugar.toLowerCase()) && even.name.toLowerCase().includes(textSerch.toLowerCase())))
                 }
             }
         })
@@ -96,8 +111,10 @@ function getTextSearch() {
     imprimirPantalla(filtrado)
 }
 
-getValueChecbox()
+
 function getValueChecbox() {
+    const inpChecBox = document.querySelectorAll(".checBox")
+    
     inpChecBox.forEach(element => {
         element.addEventListener("click", (e) => {
             if (element.checked == true) {
@@ -107,34 +124,35 @@ function getValueChecbox() {
                 valueCheckbox = valueCheckbox.filter(elementV => elementV != element.value)
                 console.log(valueCheckbox)
             }
-
+            
             let filtrado = []
 
             if (valueCheckbox.length > 0) {
-                console.log(valueCheckbox)
                 valueCheckbox.map(lugar => {
                     if (textSerch == undefined) {
                         switch (valueSelect) {
                             case "menor":
-                                filtrado.push(...datosFijos.filter(even => even.place.toLowerCase().includes(lugar.toLowerCase()) && even.capacity < 50000))
+                                filtrado.push(...datosFijos.filter(even => even.category.toLowerCase().includes(lugar.toLowerCase()) && even.capacity < 50000))
                                 console.log(filtrado)
                                 break;
                             case "mayor":
-                                filtrado.push(...datosFijos.filter(even => even.place.toLowerCase().includes(lugar.toLowerCase()) && even.capacity > 50000))
+                                filtrado.push(...datosFijos.filter(even => even.category.toLowerCase().includes(lugar.toLowerCase()) && even.capacity > 50000))
                                 break;
                             default:
-                                filtrado.push(...datosFijos.filter(even => even.place.toLowerCase().includes(lugar.toLowerCase())))
+                                
+                                filtrado.push(...datosFijos.filter(even => even.category.toLowerCase().includes(lugar.toLowerCase())))
                         }
                     } else {
                         switch (valueSelect) {
                             case "menor":
-                                filtrado.push(...datosFijos.filter(even => even.place.toLowerCase().includes(lugar) && even.capacity < 50000 && even.name.toLowerCase().includes(textSerch.toLowerCase())))
+                                filtrado.push(...datosFijos.filter(even => even.category.toLowerCase().includes(lugar.toLowerCase()) && even.capacity < 50000 && even.name.toLowerCase().includes(textSerch.toLowerCase())))
                                 break;
                             case "mayor":
-                                filtrado.push(...datosFijos.filter(even => even.place.toLowerCase().includes(lugar) && even.capacity > 50000 && even.name.toLowerCase().includes(textSerch.toLowerCase())))
+                                filtrado.push(...datosFijos.filter(even => even.category.toLowerCase().includes(lugar.toLowerCase()) && even.capacity > 50000 && even.name.toLowerCase().includes(textSerch.toLowerCase())))
                                 break;
                             default:
-                                filtrado.push(...datosFijos.filter(even => even.place.toLowerCase().includes(lugar) && even.name.toLowerCase().includes(textSerch.toLowerCase())))
+
+                                filtrado.push(...datosFijos.filter(even => even.category.toLowerCase().includes(lugar.toLowerCase()) && even.name.toLowerCase().includes(textSerch.toLowerCase())))
                         }
                     }
                 })
@@ -152,7 +170,6 @@ function getValueChecbox() {
                         filtrado.push(...datosFijos.filter(even => even.name.toLowerCase().includes(textSerch.toLowerCase())))
                 }
             }
-
             imprimirPantalla(filtrado)
         })
     })
@@ -181,7 +198,7 @@ function imprimirPantalla(arrayEven) {
             <div class="cardBody">
                 <h3 class="pCard">${evento.name}</h3>
                 <p class="pCard"><strong>Date:</strong> ${evento.date} </p>
-                <p class="pCard"><strong>Place:</strong> ${evento.place}</p>
+                <p class="pCard"><strong>Place:</strong> ${evento.category}</p>
                 <p class="pCard"><strong>Description:</strong> ${evento.description}
                 </p>
             </div>

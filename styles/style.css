@@ -37,6 +37,7 @@ h1 {
 }
 main {
   grid-area: main;
+  margin-bottom: 2rem;
 }
 section {
   display: flex;
@@ -45,6 +46,7 @@ section {
   align-items: center;
   width: 95%;
   margin: auto;
+  margin-bottom: 2rem;
 }
 footer {
   grid-area: footer;
@@ -326,6 +328,12 @@ td {
 }
 table {
   border: solid 3px;
+}
+.checBox{
+  margin-left: 1rem;
+}
+.labelCheck{
+  
 }
 
 @media (max-width: 1254px) {

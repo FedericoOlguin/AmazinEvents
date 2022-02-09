@@ -39,7 +39,6 @@ async function getData() {
             masCapacidad.innerText =
                 `${mayorCAp.name}  -  Capacity: ${mayorCAp.capacity} p`
 
-
             //imprime ingresos por categorias 
             ingresosDiv.innerHTML +=
                 `<tr>
@@ -105,15 +104,13 @@ function ingresoPorCategoria() {
     arraySort.push(...datosFijos)
     let unicos = arraySort.map(evento => evento.category)
     categriasArray = new Set(unicos)
-    let categorias = [...categriasArray]
     let ingresos = []
     arraySort.map(evento => {
         if (evento.assistance != undefined) {
             evento.ingresos = evento.assistance * evento.price
         }
-
     })
-    categorias.forEach(cate => {
+    categriasArray.forEach(cate => {
         let obj = {}
         let array = arraySort.filter(even => even.category == cate && even.assistance != undefined)
         let total = 0
@@ -128,7 +125,6 @@ function ingresoPorCategoria() {
         // console.log(arraySort.filter(even => even.category == cate))
     })
     ingresoXcategoria.push(...ingresos)
-
 }
 
 // funcion que asignan un objeto con 2 atributos, "categoria y porcentaje de asistencia" 
