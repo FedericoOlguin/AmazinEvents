@@ -139,8 +139,8 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  /* max-width: 30rem; */
-  /* min-width: 30rem; */
+  /* max-width: 25rem; */
+  /* min-width: 25rem; */
   border-radius: 10px;
   background-color: #46030f;
   overflow: hidden;
@@ -174,7 +174,7 @@ footer {
   transition: all 0.5s;
   border-radius: 10px;
   height: auto;
-  width: 30rem;
+  width: 25rem;
 }
 .linkCard:hover {
   transform: scale(1.01);
@@ -271,26 +271,61 @@ footer {
   height: 35rem;
   flex-direction: row;
   background-color: #46030f;
-  border-radius: 5px;
+  border-radius: 8px;
   overflow: hidden;
 }
 .cardDetalleBody {
   display: flex;
-  flex-direction: column;
-  /* justify-content: space-around; */
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
+  flex-wrap: wrap;
+  height: 100%;
+  align-items: stretch;
 }
+.spanCardD {
+  font-weight: 900;
+  padding: 0.5rem 1rem;
+  width: 50%;
+  min-width: 18rem;
+  display: flex;
+}
+.description{
+  min-width: 100%;
+}
+.tcardDetalle {
+  width: 100%;
+  background-color: #270108;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.divCardDetalle {
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0.5rem 0;
+}
+
 .pCardD {
-  margin: 2rem 0;
+  padding: 0rem 1rem;
+  font-weight: 400;
 }
 .option {
   color: black;
 }
-.table{
+.table {
   width: 70%;
 }
-td,th{
+td,
+th {
   border: solid;
+}
+td {
+  text-align: center;
+}
+table {
+  border: solid 3px;
 }
 
 @media (max-width: 1254px) {
@@ -316,7 +351,7 @@ td,th{
     min-height: auto;
   }
   body {
-    grid-template-rows: 0.1fr 5fr 1fr;
+    grid-template-rows: 20rem 5fr 1fr;
   }
   .filtroGroup {
     align-self: center;
@@ -324,7 +359,7 @@ td,th{
 }
 @media (max-width: 1084px) {
   body {
-    grid-template-rows: 0.1fr 1fr 1fr;
+    grid-template-rows: 20rem 1fr 1fr;
   }
   main {
     margin-bottom: 2rem;
@@ -342,6 +377,7 @@ td,th{
     flex-direction: column;
     /* justify-content: space-evenly; */
     min-height: auto;
+    /* max-height: 30rem; */
   }
   section {
     width: 100%;
@@ -380,7 +416,19 @@ td,th{
 }
 
 @media (max-width: 550px) {
-  .table{
+  body {
+    grid-template-rows: 30rem 1fr 1fr;
+  }
+  .cardDetalle{
+    width: 100%;
+  }
+  /* header{
+    max-height: 35rem;
+  } */
+  .spanCardD{
+    
+    flex-direction: column;
+  }  .table {
     width: 90%;
   }
   .imgDetalleCard {

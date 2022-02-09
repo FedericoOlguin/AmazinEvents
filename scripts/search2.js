@@ -4,17 +4,26 @@ const beforeContainer = document.getElementById("beforeContainer")
 const resBusqueda = document.getElementById("resBusqueda")
 const selectInp = document.getElementById("selectInp")
 const inpChecBox = document.querySelectorAll(".checBox")
+const registro = document.getElementById("registro")
+
 let datosFijos = []
 let textSerch = ""
 let valueSelect = ""
 let valueCheckbox = []
 
 
-fetch("./AmazingEvents.json")
+fetch("https://amazingeventsapi.herokuapp.com/api/eventos")
     .then(promesa => promesa.json())
     .then(datos => {
         datosFijos.push(...datos.eventos)
         imprimirPantalla(datosFijos)
+        let prueba = [...datosFijos.filter(eve => { return eve.assistance != undefined })]
+        let categoryA= prueba.map(even=>
+            even.category
+        )
+        categoryA= [...new Set(categoryA)]
+        console.table(categoryA)
+       
     })
 
 
@@ -171,9 +180,9 @@ function imprimirPantalla(arrayEven) {
             <img src="${evento.image}" alt="feriaComida">
             <div class="cardBody">
                 <h3 class="pCard">${evento.name}</h3>
-                <p class="pCard"><strong>Fecha:</strong> ${evento.date} </p>
-                <p class="pCard"><strong>Lugar:</strong> ${evento.place}</p>
-                <p class="pCard"><strong>Descipcion:</strong> ${evento.description}
+                <p class="pCard"><strong>Date:</strong> ${evento.date} </p>
+                <p class="pCard"><strong>Place:</strong> ${evento.place}</p>
+                <p class="pCard"><strong>Description:</strong> ${evento.description}
                 </p>
             </div>
         </div></a>`
@@ -211,6 +220,8 @@ function filtrar(selectVlaue, inputVlaue) {
 }
 
 
-
+registro.addEventListener("click", () => {
+    window.location = "../registro.html"
+})
 
 

@@ -22,7 +22,7 @@
             <ul class="menuList">
                 <li> <a href="./index.html" class="linkMenu">Inicio</a></li>
                 <li> <a href="/proximos.html" class="linkMenu">Próximos Eventos</a></li>
-                <li><input type="button" value="Registro" class="btn"></li>
+                <li><input type="button" value="Registro" class="btn" id="registro"></li>
             </ul>
         </nav>
     </header>
@@ -30,21 +30,22 @@
         <section>
             <h2 class="text-center h2">Detalle de Evento</h2>
             <div class="grid-container" id="beforeContainer">
-                <div class=" cardDetalle">
-                    <!-- <div style="height: 100%;  display: flex; border: solid 3px black;"> -->
-                        <img src="./Imagenes/avengerjpg.jpg" class="imgDetalleCard" alt="Ximagen">
-                    <!-- </div> -->
-
+                <!-- <div class=" cardDetalle">
+                    <img src="${evenImprimir.image}" class="imgDetalleCard" alt="Ximagen">
                     <div class="cardDetalleBody">
-                        <h3 class="pCardD">Lorem ipsum dolor sit amet.</h3>
-                        <p class="pCardD"><strong>Fecha:</strong> Lorem, ipsum dolor. </p>
-                        <p class="pCardD"><strong>Lugar:</strong> Lorem ipsum dolor sit.</p>
-                        <p class="pCardD"><strong>Descipcion:</strong> Lorem ipsum dolor, sit amet consectetur
-                            adipisicing elit. Quaerat a pariatur, deserunt autem nulla sint ipsa, quae architecto natus
-                            expedita numquam animi ducimus fugiat? Iure non deserunt deleniti modi quas?</p>
+                        <h3 class="tcardDetalle">${evenImprimir.name}</h3>
+                        <div class="divCardDetalle">
+                            <span class="spanCardD">Date:<p class="pCardD">${evenImprimir.date}</p>
+                            </span>
+                            <span class="spanCardD">Place:<p class="pCardD"> ${evenImprimir.place}</p></span>
+                        </div>
+                        <div class="divCardDetalle">
+                            <span class="spanCardD" >Category:<p class="pCardD">${evenImprimir.category} </p></span>
+                            <span class="spanCardD">Price:<p class="pCardD">$${evenImprimir.price} </p></span>
+                        </div>
+                        <span class="spanCardD description" >Description:<p class="pCardD"> ${evenImprimir.description}</p></span>
                     </div>
-                </div>
-
+                </div> -->
             </div>
         </section>
 
@@ -54,7 +55,7 @@
         <h5 class="text-center">Amazing Events- Copyrigth&copy; 2022 amazinevents.com</h5>
     </footer>
 
-<script src="./scripts/detalle.js"></script>
+    <script src="./scripts/detalle.js"></script>
 
 </body>
 

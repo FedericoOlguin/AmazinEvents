@@ -1,7 +1,7 @@
 const busqueda = document.getElementById("busqueda")
 const registro = document.getElementById("registro")
 
-fetch("./AmazingEvents.json")
+fetch("https://amazingeventsapi.herokuapp.com/api/eventos")
     .then(promesa => promesa.json())
     .then(datos => {
         datosFijos = datos
@@ -22,9 +22,9 @@ function imprimirPantalla(evento) {
                 <img src="${evento.image}" alt="feriaComida">
                 <div class="cardBody">
                     <h3 class="pCard">${evento.name}</h3>
-                    <p class="pCard"><strong>Fecha:</strong> ${evento.date} </p>
-                    <p class="pCard"><strong>Lugar:</strong> ${evento.place} </p>
-                    <p class="pCard"><strong>Descipcion:</strong> ${evento.description}
+                    <p class="pCard"><strong>Date:</strong> ${evento.date} </p>
+                    <p class="pCard"><strong>Place:</strong> ${evento.place} </p>
+                    <p class="pCard"><strong>Description:</strong> ${evento.description}
                     </p>
                 </div>
             </div></a>`

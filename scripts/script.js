@@ -31,7 +31,7 @@ registro.addEventListener("click", () => {
 getDatos()
 var datoFijo = ""
 async function getDatos() {
-    await fetch("../AmazingEvents.json")
+    await fetch("https://amazingeventsapi.herokuapp.com/api/eventos")
         .then(promesa => promesa.json())
         .then(dato => {
             datoFijo = dato
@@ -65,9 +65,9 @@ function imprimirCard(cardInfo, elementHtml) {
         
                 <img src="${evento.image}" alt="feriaComida">
                 <div class="cardBody">
-                    <p class="pCard"><strong>Fecha:</strong> ${evento.date} </p>
-                    <p class="pCard"><strong>Lugar:</strong> ${evento.place} </p>
-                    <p class="pCard"><strong>Descipcion:</strong> ${evento.description}
+                    <p class="pCard"><strong>Date:</strong> ${evento.date} </p>
+                    <p class="pCard"><strong>Place:</strong> ${evento.place} </p>
+                    <p class="pCard"><strong>Description:</strong> ${evento.description}
                     </p>
                 </div>
             </div></a>`
