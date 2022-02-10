@@ -41,7 +41,7 @@ async function getData() {
 
 function imprimirCheck() {
     categoryA.forEach(categ => {
-        checkboxContainer.innerHTML += (`<label  style="width:50%;height:2rem; display:flex;align-items:flex-end; justify-content:flex-start">${categ} <input   class="checBox" value="${categ}" type="checkbox"></label`)
+        checkboxContainer.innerHTML += (`<label class="labelCheck">${categ} <input   class="checBox" value="${categ}" type="checkbox"></label`)
     })
 
 
@@ -114,7 +114,7 @@ function getTextSearch() {
 
 function getValueChecbox() {
     const inpChecBox = document.querySelectorAll(".checBox")
-    
+
     inpChecBox.forEach(element => {
         element.addEventListener("click", (e) => {
             if (element.checked == true) {
@@ -124,7 +124,7 @@ function getValueChecbox() {
                 valueCheckbox = valueCheckbox.filter(elementV => elementV != element.value)
                 console.log(valueCheckbox)
             }
-            
+
             let filtrado = []
 
             if (valueCheckbox.length > 0) {
@@ -139,7 +139,7 @@ function getValueChecbox() {
                                 filtrado.push(...datosFijos.filter(even => even.category.toLowerCase().includes(lugar.toLowerCase()) && even.capacity > 50000))
                                 break;
                             default:
-                                
+
                                 filtrado.push(...datosFijos.filter(even => even.category.toLowerCase().includes(lugar.toLowerCase())))
                         }
                     } else {

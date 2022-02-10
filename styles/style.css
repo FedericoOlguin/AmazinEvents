@@ -205,7 +205,7 @@ footer {
   border-radius: 5px;
 }
 .labelFiltro {
-  width: 40%;
+  width: 20%;
 }
 .labelSearchBtn {
   align-self: flex-end;
@@ -252,7 +252,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width: 100%;
   align-self: flex-end;
 }
 .filtroControl {
@@ -290,7 +290,7 @@ footer {
   min-width: 18rem;
   display: flex;
 }
-.description{
+.description {
   min-width: 100%;
 }
 .tcardDetalle {
@@ -329,11 +329,20 @@ td {
 table {
   border: solid 3px;
 }
-.checBox{
+.checBox {
   margin-left: 1rem;
 }
-.labelCheck{
-  
+.labelCheck {
+  width: 15%;
+  height: 2rem;
+  margin: 1rem 0;
+}
+.checkboxContainer {
+  width: 100%;
+  border: solid 3px #2a1e35;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 @media (max-width: 1254px) {
@@ -366,6 +375,10 @@ table {
   }
 }
 @media (max-width: 1084px) {
+  .checkboxContainer {
+    width: 80%;
+  }
+
   body {
     grid-template-rows: 20rem 1fr 1fr;
   }
@@ -416,27 +429,30 @@ table {
   }
   .filtroControl {
     flex-direction: column;
-    width: 90%;
-  }
-  .labelSearch {
-    margin: 0.5rem 0;
+    width: 50%;
   }
 }
 
 @media (max-width: 550px) {
+  .labelCheck {
+    width: 100%;
+  }
+  .checBox {
+    margin: 0;
+  }
   body {
     grid-template-rows: 30rem 1fr 1fr;
   }
-  .cardDetalle{
+  .cardDetalle {
     width: 100%;
   }
   /* header{
     max-height: 35rem;
   } */
-  .spanCardD{
-    
+  .spanCardD {
     flex-direction: column;
-  }  .table {
+  }
+  .table {
     width: 90%;
   }
   .imgDetalleCard {
@@ -457,5 +473,8 @@ table {
   .h4 {
     margin-right: 1rem;
     margin-left: 1rem;
+  }
+  .filtroControl {
+    width: 90%;
   }
 }
